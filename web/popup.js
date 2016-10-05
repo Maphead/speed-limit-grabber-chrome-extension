@@ -20,6 +20,26 @@ var PopupController = function () {
   this.button65_ = document.getElementById('button65');
   this.button70_ = document.getElementById('button70');
   this.button75_ = document.getElementById('button75');
+  this.button80_ = document.getElementById('button80');
+  this.button85_ = document.getElementById('button85');
+  this.button15sz_ = document.getElementById('button15_school');
+  this.button20sz_ = document.getElementById('button20_school');
+  this.button25sz_ = document.getElementById('button25_school');
+  this.button30sz_ = document.getElementById('button30_school');
+  this.button35sz_ = document.getElementById('button35_school');
+  this.button20k_ = document.getElementById('button20k');
+  this.button30k_ = document.getElementById('button30k');
+  this.button40k_ = document.getElementById('button40k');
+  this.button50k_ = document.getElementById('button50k');
+  this.button60k_ = document.getElementById('button60k');
+  this.button70k_ = document.getElementById('button70k');
+  this.button80k_ = document.getElementById('button80k');
+  this.button90k_ = document.getElementById('button90k');
+  this.button100k_ = document.getElementById('button100k');
+  this.button110k_ = document.getElementById('button110k');
+  this.button120k_ = document.getElementById('button120k');
+  this.button130k_ = document.getElementById('button130k');
+  
   
   this.timeframe_ = document.getElementById('timeframe');
   this.addListeners_();
@@ -44,7 +64,26 @@ PopupController.prototype = {
   button60_: null,  
   button65_: null,
   button70_: null,  
-  button75_: null,  
+  button75_: null,
+  button80_: null,
+  button85_: null,
+  button15sz_: null,
+  button20sz_: null,
+  button25sz_: null,
+  button30sz_: null,
+  button35sz_: null,
+  button20k_: null,
+  button30k_: null,
+  button40k_: null,
+  button50k_: null,
+  button60k_: null,
+  button70k_: null,
+  button80k_: null,
+  button90k_: null,
+  button100k_: null,
+  button110k_: null,
+  button120k_: null,
+  button130k_: null,
 
   /**
    * A cached reference to the select element.
@@ -82,7 +121,25 @@ PopupController.prototype = {
 	this.button65_.addEventListener('click', this.handleClick65_.bind(this));
 	this.button70_.addEventListener('click', this.handleClick70_.bind(this)); 
 	this.button75_.addEventListener('click', this.handleClick75_.bind(this));
-	 
+	this.button80_.addEventListener('click', this.handleClick80_.bind(this));
+	this.button85_.addEventListener('click', this.handleClick85_.bind(this));
+	this.button20k_.addEventListener('click', this.handleClick20k_.bind(this));
+	this.button30k_.addEventListener('click', this.handleClick30k_.bind(this));
+	this.button40k_.addEventListener('click', this.handleClick40k_.bind(this));
+	this.button50k_.addEventListener('click', this.handleClick50k_.bind(this));
+	this.button60k_.addEventListener('click', this.handleClick60k_.bind(this));
+	this.button70k_.addEventListener('click', this.handleClick70k_.bind(this));
+	this.button80k_.addEventListener('click', this.handleClick80k_.bind(this));
+	this.button90k_.addEventListener('click', this.handleClick90k_.bind(this));
+	this.button100k_.addEventListener('click', this.handleClick100k_.bind(this));
+	this.button110k_.addEventListener('click', this.handleClick110k_.bind(this));	
+	this.button120k_.addEventListener('click', this.handleClick120k_.bind(this));
+	this.button130k_.addEventListener('click', this.handleClick130k_.bind(this));
+	this.button15sz_.addEventListener('click', this.handleClick15sz_.bind(this));
+	this.button20sz_.addEventListener('click', this.handleClick20sz_.bind(this));
+	this.button25sz_.addEventListener('click', this.handleClick25sz_.bind(this));
+	this.button30sz_.addEventListener('click', this.handleClick30sz_.bind(this));
+	this.button35sz_.addEventListener('click', this.handleClick35sz_.bind(this));
   },
 
 
@@ -109,7 +166,7 @@ PopupController.prototype = {
   },
 
   
-  guts: function(mph_) {
+  guts: function(speed_,units_) {
 	   		  
 	  var xhr = new XMLHttpRequest();
 	  //get from html5 storage not the chrome storage which i couldn't get working...
@@ -119,6 +176,14 @@ PopupController.prototype = {
 	  tag_= encodeURIComponent(tagraw);	  	  	  	  
 	  email_= emailraw;
 	  btc_= btcraw;
+	  if (units_=='M') {
+		  mph_=speed_;
+		  kph_=69;
+	  }
+	  else {
+		  mph_=69;
+		  kph=speed_;
+	  }
       var myurl= "http://www.wikispeedia.org/a/process_submit_bb6.php?name=all"+
 	  "&mlat="+lat_+
 	  "&mlon="+lon_+
@@ -162,7 +227,7 @@ PopupController.prototype = {
   
   handleClick25_: function () {
 	  
-	  var myurl= this.guts(25);	 
+	  var myurl= this.guts(25,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -186,7 +251,7 @@ PopupController.prototype = {
   
   handleClick30_: function () {
 	  
-	  var myurl= this.guts(30);	 
+	  var myurl= this.guts(30,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -210,7 +275,7 @@ PopupController.prototype = {
   
   handleClick35_: function () {
 	  
-	  var myurl= this.guts(35);	 
+	  var myurl= this.guts(35,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -234,7 +299,7 @@ PopupController.prototype = {
   
   handleClick40_: function () {
 	  
-	  var myurl= this.guts(40);	 
+	  var myurl= this.guts(40,'M');	 
 
 	
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -258,7 +323,7 @@ PopupController.prototype = {
   
   handleClick45_: function () {
 	  
-	  var myurl= this.guts(45);	 
+	  var myurl= this.guts(45,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -282,7 +347,7 @@ PopupController.prototype = {
   
   handleClick50_: function () {
 	  
-	  var myurl= this.guts(50);	 
+	  var myurl= this.guts(50,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -306,7 +371,7 @@ PopupController.prototype = {
   
   handleClick55_: function () {
 	  
-	  var myurl= this.guts(55);	 
+	  var myurl= this.guts(55,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -330,7 +395,7 @@ PopupController.prototype = {
   
   handleClick60_: function () {
 	  
-	  var myurl= this.guts(60);	 
+	  var myurl= this.guts(60,'M');	 
 
 	  
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -354,7 +419,7 @@ PopupController.prototype = {
   
   handleClick65_: function () {
 	  
-	  var myurl= this.guts(65);	 
+	  var myurl= this.guts(65,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -378,7 +443,7 @@ PopupController.prototype = {
   
   handleClick70_: function () {
 	  
-	  var myurl= this.guts(70);	 
+	  var myurl= this.guts(70,'M');	 
 
 	
 	  //from:   https://developer.chrome.com/extensions/xhr	  
@@ -402,7 +467,7 @@ PopupController.prototype = {
   
   handleClick75_: function () {	  
 	  
-	  var myurl= this.guts(75);	 
+	  var myurl= this.guts(75,'M');	 
  
 	  
 	  
@@ -424,22 +489,501 @@ PopupController.prototype = {
       }, this.handleCallback_.bind(this));
       
 	  
-  }
+  },
+  
+  handleClick80_: function () {	  
+	  
+	  var myurl= this.guts(80,'M');	 
  
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button80_.setAttribute('disabled', 'disabled');
+      this.button80_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick85_: function () {	  
+	  
+	  var myurl= this.guts(85,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button85_.setAttribute('disabled', 'disabled');
+      this.button85_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick20k_: function () {	  
+	  
+	  var myurl= this.guts(20,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button20k_.setAttribute('disabled', 'disabled');
+      this.button20k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick30k_: function () {	  
+	  
+	  var myurl= this.guts(30,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button30k_.setAttribute('disabled', 'disabled');
+      this.button30k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick40k_: function () {	  
+	  
+	  var myurl= this.guts(40,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button40k_.setAttribute('disabled', 'disabled');
+      this.button40k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick50k_: function () {	  
+	  
+	  var myurl= this.guts(50,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button50k_.setAttribute('disabled', 'disabled');
+      this.button50k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick60k_: function () {	  
+	  
+	  var myurl= this.guts(60,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button60k_.setAttribute('disabled', 'disabled');
+      this.button60k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick70k_: function () {	  
+	  
+	  var myurl= this.guts(70,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button70k_.setAttribute('disabled', 'disabled');
+      this.button70k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick80k_: function () {	  
+	  
+	  var myurl= this.guts(80,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button80k_.setAttribute('disabled', 'disabled');
+      this.button80k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick90k_: function () {	  
+	  
+	  var myurl= this.guts(90,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button90k_.setAttribute('disabled', 'disabled');
+      this.button90k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick100k_: function () {	  
+	  
+	  var myurl= this.guts(100,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button100k_.setAttribute('disabled', 'disabled');
+      this.button100k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick110k_: function () {	  
+	  
+	  var myurl= this.guts(110,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button110k_.setAttribute('disabled', 'disabled');
+      this.button110k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick120k_: function () {	  
+	  
+	  var myurl= this.guts(120,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button120k_.setAttribute('disabled', 'disabled');
+      this.button120k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick130k_: function () {	  
+	  
+	  var myurl= this.guts(130,'K');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button130k_.setAttribute('disabled', 'disabled');
+      this.button130k_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick15sz_: function () {	  
+	  
+	  var myurl= this.guts(16,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button15sz_.setAttribute('disabled', 'disabled');
+      this.button15sz_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick20sz_: function () {	  
+	  
+	  var myurl= this.guts(21,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button20sz_.setAttribute('disabled', 'disabled');
+      this.button20sz_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+  handleClick25sz_: function () {	  
+	  
+	  var myurl= this.guts(26,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button25sz_.setAttribute('disabled', 'disabled');
+      this.button25sz_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick30sz_: function () {	  
+	  
+	  var myurl= this.guts(31,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button30sz_.setAttribute('disabled', 'disabled');
+      this.button30sz_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));
+      
+	  
+  },
+
+  handleClick35sz_: function () {	  
+	  
+	  var myurl= this.guts(36,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button35sz_.setAttribute('disabled', 'disabled');
+      this.button35sz_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));   
+	  
+  }
   
 };
 
@@ -506,9 +1050,9 @@ document.addEventListener('DOMContentLoaded', function () {
   getCurrentTabUrl(function(url) {
 		myURL = url;
 		//Checks URL is a valid Street View string
-		if (!(myURL.indexOf("y,")!==-1 ||
-			myURL.indexOf("h,")!==-1 ||
-			myURL.indexOf("t/data")!==-1 ||
+		if (!(myURL.indexOf("y,")!==-1 &&
+			myURL.indexOf("h,")!==-1 &&
+			myURL.indexOf("t/data")!==-1 &&
 			myURL.indexOf("maps/@")!==-1)) {
 			//Hide speed input buttons for invalid URLs and displays an error message
 			toggle('speed_button','none');
