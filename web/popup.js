@@ -39,7 +39,8 @@ var PopupController = function () {
   this.button110k_ = document.getElementById('button110k');
   this.button120k_ = document.getElementById('button120k');
   this.button130k_ = document.getElementById('button130k');
-  
+  this.button0_ = document.getElementById('button0');
+	
   
   this.timeframe_ = document.getElementById('timeframe');
   this.addListeners_();
@@ -84,7 +85,8 @@ PopupController.prototype = {
   button110k_: null,
   button120k_: null,
   button130k_: null,
-
+  button0_: null,
+	
   /**
    * A cached reference to the select element.
    *
@@ -140,6 +142,7 @@ PopupController.prototype = {
 	this.button25sz_.addEventListener('click', this.handleClick25sz_.bind(this));
 	this.button30sz_.addEventListener('click', this.handleClick30sz_.bind(this));
 	this.button35sz_.addEventListener('click', this.handleClick35sz_.bind(this));
+	this.button0_.addEventListener('click', this.handleClick0_.bind(this));
   },
 
 
@@ -983,7 +986,34 @@ PopupController.prototype = {
           "webSQL": true
       }, this.handleCallback_.bind(this));   
 	  
+  },
+	
+
+  handleClick0_: function () {	  
+	  
+	  var myurl= this.guts(-127,'M');	 
+ 
+	  
+	  
+	  var xhr = new XMLHttpRequest();
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+          
+            //document.getElementById("resp").innerText = xhr.responseText;	
+         }	 
+      }	  
+      xhr.send();
+      
+      this.button0_.setAttribute('disabled', 'disabled');
+      this.button0_.innerText = 'Clearing...';
+      chrome.browsingData.remove({ "since" : 0 }, {        
+          "webSQL": true
+      }, this.handleCallback_.bind(this));   
+	  
   }
+	
   
 };
 
