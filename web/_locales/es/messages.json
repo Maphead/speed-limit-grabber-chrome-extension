@@ -1,79 +1,79 @@
 {
   "extName":  {
-    "message": "Speed Limit Grabber",
-    "description": "Help demote road rage."
+    "message": "Capturador de Límites de Velocidad",
+    "description": "Ayuda a controlar el exceso de velocidad."
   },
   "extDescription": {
-    "message": "Submits speed limits.",
-    "description": "Help teenagers."
+    "message": "Envíe límites de velocidad.",
+    "description": "Ayuda a los adolescentes."
   },
   "popTitleLbl": {
-	"message": "Speed Limit Grabber",
-	"description": "Label"
+	"message": "Capturador de Límites de Velocidad",
+	"description": "Etiqueta"
   },
   "popHeaderLbl": {
-	"message": "Streetview to Wikispeedia Poster",
-	"description": "Label"
-  },  
+	"message": "Publicar a Wikispeedia desde Street View",
+	"description": "Etiqueta"
+  },
   "wrongURL": {
-	"message": "Current Tab is not a valid Street View web page",
-	"description": "Error message"
+	"message": "La pestaña actual no es una página web válida de Street View",
+	"description": "Mensaje de error"
   },
   "sendSuccess": {
-	"message": "Send to Wikispeedia Finished.",
-	"description": "Status message"
+	"message": "Se ha completado el envío a Wikispeedia.",
+	"description": "Mensaje de estatus"
   },
   "clearingMsg": {
-	"message": "Clearing...",
-	"description": "Status message"
+	"message": "Procesando...",
+	"description": "Mensaje de estatus"
   },
   "optionsLbl": {
-	"message": "Options",
-	"description": "Options page title"
-  },  
+	"message": "Opciones",
+	"description": "Título de página de opciones de envío"
+  },
   "optionalLbl": {
-	"message": "Optional:",
-	"description": "Label"
+	"message": "Opcional:",
+	"description": "Etiqueta"
   },
   "nameLbl": {
-	"message": "Name:",
-	"description": "Label"
+	"message": "Nombre:",
+	"description": "Etiqueta"
   },
   "getPaidLbl": {
-	"message": "If want paid:",
-	"description": "Label"
+	"message": "Si desea recibir un pago:",
+	"description": "Etiqueta"
   },
   "emailLbl": {
-	"message": "Email:",
-	"description": "Label"
+	"message": "Correo Electrónico:",
+	"description": "Etiqueta"
   },
   "orBTCLbl": {
-	"message": "or BTC:",
-	"description": "Label"
+	"message": "o Código Bitcoin:",
+	"description": "Etiqueta"
   },
   "saveLbl": {
-	"message": "Save",
-	"description": "Label"
+	"message": "Guardar",
+	"description": "Etiqueta"
   },
   "optionsSavedLbl": {
-	"message": "Options saved.",
-	"description": "Status message"
+	"message": "Opciones guardadas.",
+	"description": "Mensaje de estatus"
   },
   "yourNameTxt": {
-	"message": "your name",
-	"description": "Default text"
+	"message": "su nombre",
+	"description": "Texto por defecto"
   },
   "yourEmailTxt": {
-	"message": "your email",
-	"description": "Default text"
+	"message": "su correo electrónico",
+	"description": "Texto por defecto"
   },
   "yourBTCTxt": {
-	"message": "your BTC",
-	"description": "Default text"
+	"message": "su número de Bitcoin",
+	"description": "Texto por defecto"
   },
   "sendSpeedLbl": {
-	"message": "Send $SPEED$ $UNIT$",
-	"description": "Label",
+	"message": "Enviar $SPEED$ $UNIT$",
+	"description": "Etiqueta",
 	"placeholders": {
 		"speed": {
 			"content": "$1",
@@ -86,8 +86,8 @@
 	}	
   },
   "sendSpeedSchoolZoneLbl": {
-	"message": "Send $SPEED$ $UNIT$ School Zone",
-	"description": "Label",
+	"message": "Enviar $SPEED$ $UNIT$ (Zona Escolar)",
+	"description": "Etiqueta",
 	"placeholders": {
 		"speed": {
 			"content": "$1",
@@ -100,8 +100,8 @@
 	}	
   },
   "sendStopLbl": {
-	"message": "Stop Sign",
-	"description": "Label"
+	"message": "Señal de Pare (Alto)",
+	"description": "Etiqueta"
   },
   "navigationDescription": {
     "message": ", requested $NUM$ times.  Loaded in an average of $LOAD$ miliseconds.",

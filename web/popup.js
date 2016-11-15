@@ -8,7 +8,7 @@
 var myURL = null;
 
 var PopupController = function () {
-  this.button20_ = document.getElementById('button20');
+  this.button20_ = document.getElementById('button20');  
   this.button25_ = document.getElementById('button25');
   this.button30_ = document.getElementById('button30');
   this.button35_ = document.getElementById('button35');
@@ -44,6 +44,9 @@ var PopupController = function () {
   
   this.timeframe_ = document.getElementById('timeframe');
   this.addListeners_();
+  this.addLabels_();
+  document.getElementById("title").innerHTML = chrome.i18n.getMessage("popTitleLbl");
+  document.getElementById("header").innerHTML = chrome.i18n.getMessage("popHeaderLbl");
 };
 
 PopupController.prototype = {
@@ -144,6 +147,42 @@ PopupController.prototype = {
 	this.button35sz_.addEventListener('click', this.handleClick35sz_.bind(this));
 	this.button0_.addEventListener('click', this.handleClick0_.bind(this));
   },
+  
+  addLabels_: function() {
+	this.button20_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["20","MPH"]);
+	this.button25_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["25","MPH"]);
+	this.button30_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["30","MPH"]);
+	this.button35_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["35","MPH"]);
+	this.button40_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["40","MPH"]);
+	this.button45_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["45","MPH"]);
+	this.button50_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["50","MPH"]);
+	this.button55_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["55","MPH"]);
+	this.button60_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["60","MPH"]);
+	this.button65_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["65","MPH"]);
+	this.button70_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["70","MPH"]);
+	this.button75_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["75","MPH"]);
+	this.button80_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["80","MPH"]);
+	this.button85_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["85","MPH"]);
+	this.button20k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["20","Km/h"]);
+	this.button30k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["30","Km/h"]);
+	this.button40k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["40","Km/h"]);
+	this.button50k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["50","Km/h"]);
+	this.button60k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["60","Km/h"]);
+	this.button70k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["70","Km/h"]);
+	this.button80k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["80","Km/h"]);
+	this.button90k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["90","Km/h"]);
+	this.button100k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["100","Km/h"]);
+	this.button110k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["110","Km/h"]);
+	this.button120k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["120","Km/h"]);
+	this.button130k_.innerText = chrome.i18n.getMessage("sendSpeedLbl",["130","Km/h"]);
+	this.button15sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["15","MPH"]);
+	this.button20sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["20","MPH"]);
+	this.button25sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["25","MPH"]);
+	this.button30sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["30","MPH"]);
+	this.button35sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["35","MPH"]);
+	this.button0_.innerText = chrome.i18n.getMessage("sendStopLbl");
+	
+  },
 
 
   /**
@@ -156,7 +195,7 @@ PopupController.prototype = {
     var success = document.createElement('div');
     success.classList.add('overlay');
     success.setAttribute('role', 'alert');
-    success.textContent = 'Send to Wikispeedia Finished.';
+    success.textContent = chrome.i18n.getMessage("sendSuccess"); //'Send to Wikispeedia Finished.'
     document.body.appendChild(success);
 
     setTimeout(function() { success.classList.add('visible'); }, 10);
@@ -221,7 +260,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button20_.setAttribute('disabled', 'disabled');
-      this.button20_.innerText = 'Clearing...';
+      this.button20_.innerText = chrome.i18n.getMessage("clearingMsg"); //'Clearing...'
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -245,7 +284,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button25_.setAttribute('disabled', 'disabled');
-      this.button25_.innerText = 'Clearing...';
+      this.button25_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -269,7 +308,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button30_.setAttribute('disabled', 'disabled');
-      this.button30_.innerText = 'Clearing...';
+      this.button30_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -293,7 +332,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button35_.setAttribute('disabled', 'disabled');
-      this.button35_.innerText = 'Clearing...';
+      this.button35_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -317,7 +356,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button40_.setAttribute('disabled', 'disabled');
-      this.button40_.innerText = 'Clearing...';
+      this.button40_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -341,7 +380,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button45_.setAttribute('disabled', 'disabled');
-      this.button45_.innerText = 'Clearing...';
+      this.button45_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -365,7 +404,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button50_.setAttribute('disabled', 'disabled');
-      this.button50_.innerText = 'Clearing...';
+      this.button50_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -389,7 +428,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button55_.setAttribute('disabled', 'disabled');
-      this.button55_.innerText = 'Clearing...';
+      this.button55_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -413,7 +452,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button60_.setAttribute('disabled', 'disabled');
-      this.button60_.innerText = 'Clearing...';
+      this.button60_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -437,7 +476,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button65_.setAttribute('disabled', 'disabled');
-      this.button65_.innerText = 'Clearing...';
+      this.button65_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -461,7 +500,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button70_.setAttribute('disabled', 'disabled');
-      this.button70_.innerText = 'Clearing...';
+      this.button70_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -486,7 +525,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button75_.setAttribute('disabled', 'disabled');
-      this.button75_.innerText = 'Clearing...';
+      this.button75_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -512,7 +551,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button80_.setAttribute('disabled', 'disabled');
-      this.button80_.innerText = 'Clearing...';
+      this.button80_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -538,7 +577,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button85_.setAttribute('disabled', 'disabled');
-      this.button85_.innerText = 'Clearing...';
+      this.button85_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -564,7 +603,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button20k_.setAttribute('disabled', 'disabled');
-      this.button20k_.innerText = 'Clearing...';
+      this.button20k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -590,7 +629,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button30k_.setAttribute('disabled', 'disabled');
-      this.button30k_.innerText = 'Clearing...';
+      this.button30k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -616,7 +655,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button40k_.setAttribute('disabled', 'disabled');
-      this.button40k_.innerText = 'Clearing...';
+      this.button40k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -642,7 +681,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button50k_.setAttribute('disabled', 'disabled');
-      this.button50k_.innerText = 'Clearing...';
+      this.button50k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -668,7 +707,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button60k_.setAttribute('disabled', 'disabled');
-      this.button60k_.innerText = 'Clearing...';
+      this.button60k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -694,7 +733,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button70k_.setAttribute('disabled', 'disabled');
-      this.button70k_.innerText = 'Clearing...';
+      this.button70k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -720,7 +759,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button80k_.setAttribute('disabled', 'disabled');
-      this.button80k_.innerText = 'Clearing...';
+      this.button80k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -746,7 +785,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button90k_.setAttribute('disabled', 'disabled');
-      this.button90k_.innerText = 'Clearing...';
+      this.button90k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -772,7 +811,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button100k_.setAttribute('disabled', 'disabled');
-      this.button100k_.innerText = 'Clearing...';
+      this.button100k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -798,7 +837,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button110k_.setAttribute('disabled', 'disabled');
-      this.button110k_.innerText = 'Clearing...';
+      this.button110k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -824,7 +863,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button120k_.setAttribute('disabled', 'disabled');
-      this.button120k_.innerText = 'Clearing...';
+      this.button120k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -850,7 +889,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button130k_.setAttribute('disabled', 'disabled');
-      this.button130k_.innerText = 'Clearing...';
+      this.button130k_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -876,7 +915,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button15sz_.setAttribute('disabled', 'disabled');
-      this.button15sz_.innerText = 'Clearing...';
+      this.button15sz_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -902,7 +941,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button20sz_.setAttribute('disabled', 'disabled');
-      this.button20sz_.innerText = 'Clearing...';
+      this.button20sz_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -929,7 +968,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button25sz_.setAttribute('disabled', 'disabled');
-      this.button25sz_.innerText = 'Clearing...';
+      this.button25sz_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -955,7 +994,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button30sz_.setAttribute('disabled', 'disabled');
-      this.button30sz_.innerText = 'Clearing...';
+      this.button30sz_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));
@@ -981,7 +1020,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button35sz_.setAttribute('disabled', 'disabled');
-      this.button35sz_.innerText = 'Clearing...';
+      this.button35sz_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));   
@@ -1007,7 +1046,7 @@ PopupController.prototype = {
       xhr.send();
       
       this.button0_.setAttribute('disabled', 'disabled');
-      this.button0_.innerText = 'Clearing...';
+      this.button0_.innerText = chrome.i18n.getMessage("clearingMsg");
       chrome.browsingData.remove({ "since" : 0 }, {        
           "webSQL": true
       }, this.handleCallback_.bind(this));   
@@ -1083,13 +1122,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!(myURL.indexOf("y,")!==-1 &&
 			myURL.indexOf("h,")!==-1 &&
 			myURL.indexOf("t/data")!==-1 &&
-			myURL.indexOf("maps/@")!==-1)) {
+			(myURL.indexOf("maps/@")!==-1 || myURL.indexOf("maps/place")!==-1))) {
 			//Hide speed input buttons for invalid URLs and displays an error message
 			toggle('speed_button','none');
 			var wrongURL = document.createElement('div');
 			wrongURL.classList.add('overlay');
 			wrongURL.setAttribute('role', 'alert');
-			wrongURL.textContent = 'Current Tab is not a valid Street View web page';
+			wrongURL.textContent = chrome.i18n.getMessage("wrongURL"); //'Current Tab is not a valid Street View web page';
 			document.body.appendChild(wrongURL);
 			setTimeout(function() { wrongURL.classList.add('visible'); }, 10);
 			setTimeout(function() {
@@ -1107,34 +1146,34 @@ document.addEventListener('DOMContentLoaded', function () {
 			var ol = document.createElement('ol');
 			var li, p, em, code, text1;
 			var i;	  
-			i=myURL.length-1;
+			//i=myURL.length-1;
 			li = document.createElement('li');
 			p = document.createElement('p');
 			em = document.createElement('em');
-			em.textContent = i + 1;		
-			code = document.createElement('code');
+			//em.textContent = i + 1;		
+			//code = document.createElement('code');
 			//code.textContent = results[i].url + " debugging";		
-			code.textContent = myURL;
+			//code.textContent = myURL;
 			//text1 = document.createTextNode(
 			//  chrome.i18n.getMessage('navigationDescription',
 			//    [results[i].numRequests,
 			//    results[i].average]));
 			//p.appendChild(em);
-			p.appendChild(code);
+			//p.appendChild(code);
 			//p.appendChild(text1);
-			li.appendChild(p);
-			ol.appendChild(li);
-			section.innerHTML = '';
-			section.appendChild(ol);
-			var myguts = code.textContent;
+			//li.appendChild(p);
+			//ol.appendChild(li);
+			//section.innerHTML = '';
+			//section.appendChild(ol);
+			var myguts = myURL;
 			var coord_start = myguts.indexOf("/@");
-			var str= myguts.substring(coord_start+2,75);
-			var res = str.split(",");
+			var str= myguts.substring(coord_start+2,myguts.length);
+			var res = str.split(",");			
 			lat_= res[0];
 			lon_= res[1];
 			var cogh= res[4];
 			var n = cogh.length;
-			cog_= cogh.substring(0,n-1);
+			cog_= cogh.substring(0,n-1);			
 			kph_= "69";  				
 		}
   });

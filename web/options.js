@@ -1,3 +1,4 @@
+
 // Saves options to chrome.storage
 function save_options() {
  
@@ -19,7 +20,7 @@ function save_options() {
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
+    status.textContent = chrome.i18n.getMessage("optionsSavedLbl");
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -32,9 +33,9 @@ function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
  
-	likesName: 'your name',
-	likesName2: 'your email address',
-	likesName3: 'your btc number'
+	likesName: chrome.i18n.getMessage("yourNameTxt"),// 'your name',
+	likesName2: chrome.i18n.getMessage("yourEmailTxt"),// 'your email address',
+	likesName3: chrome.i18n.getMessage("yourBTCTxt")// 'your btc number'
   }, function(items) {
   
 	document.getElementById('likename').value= items.likesName;
@@ -45,3 +46,10 @@ function restore_options() {
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
     save_options);
+document.getElementById('title').innerHTML = chrome.i18n.getMessage("optionsLbl");
+document.getElementById('optional').innerHTML = chrome.i18n.getMessage("optionalLbl");
+document.getElementById('option-name').innerHTML = chrome.i18n.getMessage("nameLbl");
+document.getElementById('option-payment').innerHTML = chrome.i18n.getMessage("getPaidLbl");
+document.getElementById('option-email').innerHTML = chrome.i18n.getMessage("emailLbl");
+document.getElementById('option-btc').innerHTML = chrome.i18n.getMessage("orBTCLbl");
+document.getElementById('save').innerHTML = chrome.i18n.getMessage("saveLbl");
