@@ -245,7 +245,7 @@ PopupController.prototype = {
   
   handleClick20_: function () {
 	  
-	  var myurl= this.guts(20);	 
+	  var myurl= this.guts(20,'M');	 
 
 	 
 	  //from:   https://developer.chrome.com/extensions/xhr	  
