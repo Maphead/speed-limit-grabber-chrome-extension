@@ -224,7 +224,7 @@ PopupController.prototype = {
 	  }
 	  else {
 		  mph_=69;
-		  kph=speed_;
+		  kph_=speed_;
 	  }
       var myurl= "http://www.wikispeedia.org/a/process_submit_bb6.php?name=all"+
 	  "&mlat="+lat_+
