@@ -219,8 +219,8 @@ PopupController.prototype = {
       var emailraw= localStorage.getItem("likename2");
       var btcraw= localStorage.getItem("likename3");
 	  tag_= encodeURIComponent(tagraw);	  	  	  	  
-	  email_= emailraw;
-	  btc_= btcraw;
+	  email_= encodeURIComponent(emailraw);
+	  btc_= encodeURIComponent(btcraw);
 	  var isTruck = document.getElementById("truckSwitch");
 	  mph_truck_=0;
 	  if (!isTruck.checked || units_!='M') {
@@ -243,7 +243,7 @@ PopupController.prototype = {
 	  "&mcog="+cog_+
 	  ""
 	  ;
-	  
+	  window.alert(myurl);
 	  return myurl;
       }
       else
