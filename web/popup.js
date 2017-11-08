@@ -243,7 +243,7 @@ PopupController.prototype = {
 	  "&mcog="+cog_+
 	  ""
 	  ;
-	  window.alert(myurl);
+	  //window.alert(myurl);
 	  return myurl;
       }
       else
