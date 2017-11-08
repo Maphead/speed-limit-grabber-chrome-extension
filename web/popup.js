@@ -257,7 +257,7 @@ PopupController.prototype = {
 		  "&memail="+email_+
 		  "&mbitcoin="+btc_+
 		  "&mcog="+cog_+
-		  "&mph_truck="+mph_truck_+
+		  "&mmph_truck="+mph_truck_+
 		  ""
 		  ;
 		  //window.alert(myurl);
