@@ -103,6 +103,10 @@
 	"message": "Stop Sign",
 	"description": "Label"
   },
+  "truckOptionLbl": {
+	"message": "Truck's Speed Limit (mph only)",
+	"description": "Label"
+  },
   "navigationDescription": {
     "message": ", requested $NUM$ times.  Loaded in an average of $LOAD$ miliseconds.",
     "description": "The message posted in the popup for each stored navigation.",

@@ -103,6 +103,10 @@
 	"message": "Señal de Pare (Alto)",
 	"description": "Etiqueta"
   },
+  "truckOptionLbl": {
+	"message": "Límite de Camiones (sólo para mph)",
+	"description": "Label"
+  },  
   "navigationDescription": {
     "message": ", requested $NUM$ times.  Loaded in an average of $LOAD$ miliseconds.",
     "description": "The message posted in the popup for each stored navigation.",

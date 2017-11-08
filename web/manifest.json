@@ -13,7 +13,7 @@
     "default_popup": "popup.html"
   },
   "permissions":    [
-    "webNavigation", "storage", "browsingData", "http://www.wikispeedia.org/*" , "activeTab"
+    "webNavigation", "storage", "browsingData", "*://www.wikispeedia.org/*" , "activeTab" , "tabs"
   ],
   "manifest_version": 2
 }

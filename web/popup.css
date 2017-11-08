@@ -129,3 +129,7 @@ p {
   opacity: 1;
   -webkit-transform: scale(1);
 }
+
+.truck_label {
+	font-size: 1.1em;
+}

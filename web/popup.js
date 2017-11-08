@@ -40,6 +40,7 @@ var PopupController = function () {
   this.button120k_ = document.getElementById('button120k');
   this.button130k_ = document.getElementById('button130k');
   this.button0_ = document.getElementById('button0');
+  this.truckSwitchLbl_ = document.getElementById('truckSwithLbl');
 	
   
   this.timeframe_ = document.getElementById('timeframe');
@@ -89,6 +90,7 @@ PopupController.prototype = {
   button120k_: null,
   button130k_: null,
   button0_: null,
+  truckSwitch_: null,
 	
   /**
    * A cached reference to the select element.
@@ -180,6 +182,7 @@ PopupController.prototype = {
 	this.button25sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["25","MPH"]);
 	this.button30sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["30","MPH"]);
 	this.button35sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["35","MPH"]);
+	this.truckSwitchLbl_.innerText = chrome.i18n.getMessage("truckOptionLbl");
 	this.button0_.innerText = chrome.i18n.getMessage("sendStopLbl");
 	
   },
@@ -218,6 +221,9 @@ PopupController.prototype = {
 	  tag_= encodeURIComponent(tagraw);	  	  	  	  
 	  email_= emailraw;
 	  btc_= btcraw;
+	  var isTruck = document.getElementById("truckSwitch");
+	  mph_truck_=0;
+	  if (!isTruck.checked || units_!='M') {
 	  if (units_=='M') {
 		  mph_=speed_;
 		  kph_=69;
@@ -239,6 +245,26 @@ PopupController.prototype = {
 	  ;
 	  
 	  return myurl;
+      }
+      else
+      {	  
+		  mph_truck_=speed_;
+		  var myurl= "http://www.wikispeedia.org/a/process_submit_bb6.php?name=all"+
+		  "&mlat="+lat_+
+		  "&mlon="+lon_+
+		  "&mkph=69"+
+		  "&mtag="+tag_+
+		  "&memail="+email_+
+		  "&mbitcoin="+btc_+
+		  "&mcog="+cog_+
+		  "&mph_truck="+mph_truck_+
+		  ""
+		  ;
+		  //window.alert(myurl);
+		  return myurl;
+		  
+		  
+      }
   },
   
   
@@ -1125,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			(myURL.indexOf("maps/@")!==-1 || myURL.indexOf("maps/place")!==-1))) {
 			//Hide speed input buttons for invalid URLs and displays an error message
 			toggle('speed_button','none');
-			var wrongURL = document.createElement('div');
+			/*var wrongURL = document.createElement('div');
 			wrongURL.classList.add('overlay');
 			wrongURL.setAttribute('role', 'alert');
 			wrongURL.textContent = chrome.i18n.getMessage("wrongURL"); //'Current Tab is not a valid Street View web page';
@@ -1136,7 +1162,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				wrongURL.classList.remove('visible');
 			  else
 				window.close();
-			}, 4000);			
+			}, 4000);			*/						
+			chrome.tabs.create({url:"https://www.wikispeedia.org/a/hey_tryhere.php?mkph=69"});
 			}
 		else {
 			//Show speed input buttons to allow normal pop up funcionality
