@@ -6,6 +6,14 @@ function save_options() {
   var likesName2  = document.getElementById('likename2').value;
   var likesName3  = document.getElementById('likename3').value;
   
+  if (likesName2==chrome.i18n.getMessage("yourEmailTxt")){
+	  likesName2 = "";
+  }
+  
+  if (likesName3==chrome.i18n.getMessage("yourBTCTxt")){
+	  likesName3 = "";
+  }
+  
   //also store it in html5 storage, not chrome storage which i couldnt get working
   localStorage.setItem("likename", likesName);
   localStorage.setItem("likename2", likesName2);
