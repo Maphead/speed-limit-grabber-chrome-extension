@@ -40,7 +40,6 @@ var PopupController = function () {
   this.button120k_ = document.getElementById('button120k');
   this.button130k_ = document.getElementById('button130k');
   this.button0_ = document.getElementById('button0');
-  this.truckSwitchLbl_ = document.getElementById('truckSwithLbl');
 	
   
   this.timeframe_ = document.getElementById('timeframe');
@@ -90,7 +89,6 @@ PopupController.prototype = {
   button120k_: null,
   button130k_: null,
   button0_: null,
-  truckSwitch_: null,
 	
   /**
    * A cached reference to the select element.
@@ -182,7 +180,6 @@ PopupController.prototype = {
 	this.button25sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["25","MPH"]);
 	this.button30sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["30","MPH"]);
 	this.button35sz_.innerText = chrome.i18n.getMessage("sendSpeedSchoolZoneLbl",["35","MPH"]);
-	this.truckSwitchLbl_.innerText = chrome.i18n.getMessage("truckOptionLbl");
 	this.button0_.innerText = chrome.i18n.getMessage("sendStopLbl");
 	
   },
@@ -208,6 +205,33 @@ PopupController.prototype = {
       else
         window.close();
     }, 4000);
+	
+	
+	
+	/* Alirio, this code doesnt work 
+	var likesName4  = document.getElementById('likename4').value;	
+	if (likesName4 == "" || likesName4 == 'no') {
+	} else {
+		var myurl= "https://www.wikispeedia.org/a/hey_tryhere.php?mkph=69";
+		
+	 
+	 
+	  //from:   https://developer.chrome.com/extensions/xhr	  
+      var xhr = new XMLHttpRequest();
+	  xhr.open("GET", myurl, true);
+	  xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4) {	
+                     
+         }	 
+      }	  
+      xhr.send();
+	  
+	  
+	  
+	}
+	*/
+	
+	
   },
 
   
@@ -218,12 +242,11 @@ PopupController.prototype = {
       var tagraw= localStorage.getItem("likename");
       var emailraw= localStorage.getItem("likename2");
       var btcraw= localStorage.getItem("likename3");
+	 
+	  
 	  tag_= encodeURIComponent(tagraw);	  	  	  	  
-	  email_= encodeURIComponent(emailraw);
-	  btc_= encodeURIComponent(btcraw);
-	  var isTruck = document.getElementById("truckSwitch");
-	  mph_truck_=0;
-	  if (!isTruck.checked || units_!='M') {
+	  email_= emailraw;
+	  btc_= btcraw;
 	  if (units_=='M') {
 		  mph_=speed_;
 		  kph_=69;
@@ -243,28 +266,8 @@ PopupController.prototype = {
 	  "&mcog="+cog_+
 	  ""
 	  ;
-	  //window.alert(myurl);
+	  
 	  return myurl;
-      }
-      else
-      {	  
-		  mph_truck_=speed_;
-		  var myurl= "http://www.wikispeedia.org/a/process_submit_bb6.php?name=all"+
-		  "&mlat="+lat_+
-		  "&mlon="+lon_+
-		  "&mkph=69"+
-		  "&mtag="+tag_+
-		  "&memail="+email_+
-		  "&mbitcoin="+btc_+
-		  "&mcog="+cog_+
-		  "&mmph_truck="+mph_truck_+
-		  ""
-		  ;
-		  //window.alert(myurl);
-		  return myurl;
-		  
-		  
-      }
   },
   
   
@@ -282,7 +285,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };  
       xhr.send();
       
       this.button20_.setAttribute('disabled', 'disabled');
@@ -306,7 +309,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };  
       xhr.send();
       
       this.button25_.setAttribute('disabled', 'disabled');
@@ -330,7 +333,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };
       xhr.send();
       
       this.button30_.setAttribute('disabled', 'disabled');
@@ -354,7 +357,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };  
       xhr.send();
       
       this.button35_.setAttribute('disabled', 'disabled');
@@ -378,7 +381,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };  
       xhr.send();
       
       this.button40_.setAttribute('disabled', 'disabled');
@@ -402,7 +405,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };
       xhr.send();
       
       this.button45_.setAttribute('disabled', 'disabled');
@@ -426,7 +429,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button50_.setAttribute('disabled', 'disabled');
@@ -450,7 +453,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button55_.setAttribute('disabled', 'disabled');
@@ -474,7 +477,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button60_.setAttribute('disabled', 'disabled');
@@ -498,7 +501,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button65_.setAttribute('disabled', 'disabled');
@@ -522,7 +525,7 @@ PopupController.prototype = {
           
            
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button70_.setAttribute('disabled', 'disabled');
@@ -547,7 +550,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button75_.setAttribute('disabled', 'disabled');
@@ -573,7 +576,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button80_.setAttribute('disabled', 'disabled');
@@ -599,7 +602,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button85_.setAttribute('disabled', 'disabled');
@@ -625,7 +628,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button20k_.setAttribute('disabled', 'disabled');
@@ -651,7 +654,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button30k_.setAttribute('disabled', 'disabled');
@@ -677,7 +680,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button40k_.setAttribute('disabled', 'disabled');
@@ -703,7 +706,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button50k_.setAttribute('disabled', 'disabled');
@@ -729,7 +732,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button60k_.setAttribute('disabled', 'disabled');
@@ -755,7 +758,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button70k_.setAttribute('disabled', 'disabled');
@@ -781,7 +784,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button80k_.setAttribute('disabled', 'disabled');
@@ -807,7 +810,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button90k_.setAttribute('disabled', 'disabled');
@@ -833,7 +836,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button100k_.setAttribute('disabled', 'disabled');
@@ -859,7 +862,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button110k_.setAttribute('disabled', 'disabled');
@@ -885,7 +888,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button120k_.setAttribute('disabled', 'disabled');
@@ -911,7 +914,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button130k_.setAttribute('disabled', 'disabled');
@@ -937,7 +940,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button15sz_.setAttribute('disabled', 'disabled');
@@ -963,7 +966,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button20sz_.setAttribute('disabled', 'disabled');
@@ -990,7 +993,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button25sz_.setAttribute('disabled', 'disabled');
@@ -1016,7 +1019,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button30sz_.setAttribute('disabled', 'disabled');
@@ -1042,7 +1045,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button35sz_.setAttribute('disabled', 'disabled');
@@ -1068,7 +1071,7 @@ PopupController.prototype = {
           
             //document.getElementById("resp").innerText = xhr.responseText;	
          }	 
-      }	  
+      };	  
       xhr.send();
       
       this.button0_.setAttribute('disabled', 'disabled');
@@ -1129,7 +1132,7 @@ function getCurrentTabUrl(callback) {
  */
 
 function toggle(element_class, displayState){
-    var elements = document.getElementsByClassName(element_class)
+    var elements = document.getElementsByClassName(element_class);
 
     for (var i = 0; i < elements.length; i++){
         elements[i].style.display = displayState;
@@ -1151,7 +1154,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			(myURL.indexOf("maps/@")!==-1 || myURL.indexOf("maps/place")!==-1))) {
 			//Hide speed input buttons for invalid URLs and displays an error message
 			toggle('speed_button','none');
-			/*var wrongURL = document.createElement('div');
+			var wrongURL = document.createElement('div');
 			wrongURL.classList.add('overlay');
 			wrongURL.setAttribute('role', 'alert');
 			wrongURL.textContent = chrome.i18n.getMessage("wrongURL"); //'Current Tab is not a valid Street View web page';
@@ -1162,8 +1165,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				wrongURL.classList.remove('visible');
 			  else
 				window.close();
-			}, 4000);			*/						
-			chrome.tabs.create({url:"https://www.wikispeedia.org/a/hey_tryhere.php?mkph=69"});
+			}, 4000);			
 			}
 		else {
 			//Show speed input buttons to allow normal pop up funcionality
